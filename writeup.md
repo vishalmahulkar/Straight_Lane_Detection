@@ -1,27 +1,31 @@
 # **Finding Lane Lines on the Road** 
 
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
 ---
 
 **Finding Lane Lines on the Road**
 
-The goals / steps of this project are the following:
-* Make a pipeline that finds lane lines on the road
-* Reflect on your work in a written report
-
-
-[//]: # (Image References)
-
-[image1]: ./examples/grayscale.jpg "Grayscale"
+The goals of this project are the following:
+* Detect lanes on test images and videos while driving on the highway under reasonably well lighting conditions
+  * No snow on the road
+  * No rain
+  * Some shadows from trees and other objects are acceptable
 
 ---
 
 ### Reflection
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+### 1. The Pipeline.
+My pipeline consists of two main steps: 
+a. Identifying lines 
+This workflow further consists of several steps. Initially I tried converting the images to grayscale followed by Gaussian blurring and then Canny edge detection followed by Hough transform to get detect the lanes. This method worked well when the lighting was good - meaning no shadows or other discolouration. Also, this procedure worked well for all white lines. But in cases where there are shadows or for yellow lines, the process did not alwyas give good results. 
+
+Image with shadow and yellow lane			|	Grayscale
+<img src="images/shadow.jpg" width="650"> 	|	<img src="images/gray.jpg" width="650">
+
+To over come this, instead of grayscale, I converted the image to HSL colour scheme, which shows yellows much better even in shadows. 
+
+
+b. Averaging the lines
 
 My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
 
