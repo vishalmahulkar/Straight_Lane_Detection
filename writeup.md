@@ -67,7 +67,7 @@ Once **Step a** is done, it is time to average all the lines detected on the two
 
 **Step b.4:** Take weighted average of the lines on the left and right lanes (calculate both slope and intercept).
 
-**Step b.5:** To draw the averages line, calculate the end points using the y = mx+c with x = 0, 0.45\times image_width, 0.55\times image_width, image_width
+**Step b.5:** To draw the averages line, calculate the end points using the y = mx+c with x = 0, 0.45 \times image_width, 0.55 \times image_width, image_width
 
 This algorithm was able to identify lanes in all the [test images](test_images_output) as well as the [videos](test_videos_output).
 
