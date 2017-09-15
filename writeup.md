@@ -79,5 +79,11 @@ There are a number of short comings of the algorithm:
 
 ### 3. Suggest possible improvements to your pipeline
 
-I will try to address improvements for each of the five points above
+I will try to address improvements for each of the five points above:
+
+1. Machine learning!
+2. Need to update the algorithm to include curved lines.
+3. Remove the region of interest masking and detect all lane lines in the visible image
+4. Moving average filter. Better still : Kalman Filtering. Using the states of the car (e.g. speed, steering) to estimate how the end points of the detected lines will move.
+5. Make sure the hardware is located such that this perspective hold true for any scenario.
 
