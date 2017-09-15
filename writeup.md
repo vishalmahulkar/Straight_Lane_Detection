@@ -59,34 +59,25 @@ My pipeline consists of two main steps:
 #### b. Averaging the lines
 Once **Step a** is done, it is time to average all the lines detected on the two lanes and plot it on the original image. This includes following. 
 
-HTML("""
-<video width="960" height="540" controls>
-  <source src="{0}">
-</video>
-""".format("test_videos_output/solidWhiteRight.mp4"))
+**Step b.1:** Calculate the slope, intercept, and the line length. Line length will be used as the weight of the line.
+**Step b.2:** Separate the positive and negative slope lines and keep lines which are longer than 10px.
+**Step b.3:** Remove outliners which are more than 1.5 standard deviation slope from the mean. This helps reduce jitter a little.
+**Step b.4:** Take weighted average of the lines on the left and right lanes (calculate both slope and intercept).
+**Step b.5:** To draw the averages line, calculate the end points using the y = mx+c with x = 0, 0.45\times image_width, 0.55\times image_width, image_width
 
-HTML("""
-<video width="960" height="540" controls>
-  <source src="{0}">
-</video>
-""".format("test_videos_output/solidYellowLeft.mp4"))
+This algorithm was able to identify lanes in all the [test images](test_images_output) as well as the [videos](test_videos_output).
 
-HTML("""
-<video width="960" height="540" controls>
-  <source src="{0}">
-</video>
-""".format("test_videos_output/challenge.mp4"))
 
 ### 2. Identify potential shortcomings with your current pipeline
+There are a number of short comings of the algorithm:
 
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
-
+1. It takes a lot of time to manually tune paramaters for colour selection, edge detection, and Hough transform to make sure that the code performs robustly for all scenarios. Even with this, we can only cover a limited number of scenarios. Even in the example videos, the weather conditions are perfect - line markings are very good. In absence of either of these, the algorithm will fail.
+2. The algorithm can only identify straight lines. In case the image does not have straight line long enough, there would be a failure.
+3. The perspective is such that other lanes are not visible very clearly. The region of interest marking further completely occludes the view of other lane markings. If the vehicle wanted to change lanes, this would make it difficult if not impossible.
+4. The lanes detected are very jittery because there is no memory built into the code or because there is not filtering. This can be corrected pretty easily using simple moving average filter.
+5. If the perspective is such that both the lanes lines have negative slope, this algorithm will fail.
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+I will try to address improvements for each of the five points above
 
-Another potential improvement could be to ...
