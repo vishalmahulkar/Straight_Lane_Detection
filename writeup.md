@@ -68,7 +68,7 @@ Once **Step a** is done, it is time to average all the lines detected on the two
 This algorithm was able to identify lanes in all the [test images](test_images_output) as well as the [videos](test_videos_output).
 
 
-### 2. Identify potential shortcomings with your current pipeline
+### 2. Potential short comings
 There are a number of short comings of the algorithm:
 
 1. It takes a lot of time to manually tune paramaters for colour selection, edge detection, and Hough transform to make sure that the code performs robustly for all scenarios. Even with this, we can only cover a limited number of scenarios. Even in the example videos, the weather conditions are perfect - line markings are very good. In absence of either of these, the algorithm will fail.
@@ -77,7 +77,7 @@ There are a number of short comings of the algorithm:
 4. The lanes detected are very jittery because there is no memory built into the code or because there is not filtering. This can be corrected pretty easily using simple moving average filter.
 5. If the perspective is such that both the lanes lines have negative slope, this algorithm will fail.
 
-### 3. Suggest possible improvements to your pipeline
+### 3. Possible improvements
 
 I will try to address improvements for each of the five points above:
 
