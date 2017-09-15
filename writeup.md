@@ -16,7 +16,8 @@ The goals of this project are the following:
 
 ### 1. The Pipeline.
 My pipeline consists of two main steps: 
-a. Identifying lines 
+
+#### a. Identifying lines 
  This workflow further consists of several steps. Initially I tried converting the images to grayscale followed by Gaussian blurring and then Canny edge detection followed by Hough transform to get detect the lanes. This method worked well when the lighting was good - meaning no shadows or other discolouration. Also, this procedure worked well for all white lines. But in cases where there are shadows or for yellow lines, the process did not alwyas give good results. 
 
  Image with shadow and yellow lane			       |	Grayscale
@@ -55,7 +56,7 @@ a. Identifying lines
 
  <img src="images/final.jpg" width="500">
 
-b. Averaging the lines
+#### b. Averaging the lines
  Once Step a is done, it is time to average all the lines detected on the two lanes and plot it on the original image. This includes following 
 
 ### 2. Identify potential shortcomings with your current pipeline
