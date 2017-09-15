@@ -32,32 +32,50 @@ My pipeline consists of two main steps:
 
  This step is followed by Gaussian blurring kernel=15 to remove tiny features and then canny edge detection. The result is seen below. It is clear that the lanes are identified pretty well even with the shadow.
 
- *Step a.1: Colour Selection*
+ **Step a.1: Colour Selection**
 
  <img src="images/colour_selected.jpg" width="500">
 
- *Step a.2: Gaussian blurring*
+ **Step a.2: Gaussian blurring**
 
  <img src="images/gaussian_blur.jpg" width="500">
 
- *Step a.3: Canny edges*
+ **Step a.3: Canny edges**
 
  <img src="images/edges.jpg" width="500">
 
- *Step a.4: Edges in region of interest*
+ **Step a.4: Edges in region of interest**
 
  <img src="images/region_of_interest.jpg" width="500">
 
- *Step a.5: Hough lines*
+ **Step a.5: Hough lines**
 
  <img src="images/combined.jpg" width="500">
 
- *Step a.5: Final*
+ **Step a.5: Final**
 
  <img src="images/final.jpg" width="500">
 
 #### b. Averaging the lines
- Once Step a is done, it is time to average all the lines detected on the two lanes and plot it on the original image. This includes following 
+Once **Step a** is done, it is time to average all the lines detected on the two lanes and plot it on the original image. This includes following. 
+
+HTML("""
+<video width="960" height="540" controls>
+  <source src="{0}">
+</video>
+""".format("test_videos_output/solidWhiteRight.mp4"))
+
+HTML("""
+<video width="960" height="540" controls>
+  <source src="{0}">
+</video>
+""".format("test_videos_output/solidYellowLeft.mp4"))
+
+HTML("""
+<video width="960" height="540" controls>
+  <source src="{0}">
+</video>
+""".format("test_videos_output/challenge.mp4"))
 
 ### 2. Identify potential shortcomings with your current pipeline
 
